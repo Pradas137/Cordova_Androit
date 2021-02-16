@@ -1,9 +1,8 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function esborra(event){
-	//var elem = event.target;
-	//$(elem).parent().parent().remove();
-	alert("ERROR");
+	var elem = event.target;
+	$(elem).parent().parent().remove();
 }
 
 function onDeviceReady() {
@@ -12,11 +11,10 @@ function onDeviceReady() {
 
 	$("#inputButton").click(function() {
         var text = $('#myText').val();
-        $('ul').append("<li class='ui-last-child'><a class='ui-btn' href='#'>"+text+"</a></li>");
-    	$('a').append("<button id='deleteButton'>Elimina</button>");
+        $('ul').append("<li class='ui-last-child'><a class='ui-btn' href='#'>"+text+"<button class='deleteButton'>Elimina</button></a></li>");
+		$('.deleteButton').click(esborra)
     });
 
-	$('#deleteButton').click(esborra)
 
 
 }
